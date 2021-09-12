@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+  
+import React, { useState } from "react";
+import { Button } from "@material-ui/core";
+import { TextField } from '@material-ui/core';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import AppBar from "./components/AppBar"
 
-export default App;
+
+import "./App.css";
+
+import Dashboard from "./components/Dashboard";
+
+export default function App() {
+  const [loggedIn, setLoggedIn] = useState(false)
+  
+
+  return loggedIn ? (
+        <div>
+          
+          <AppBar />
+          <Dashboard />
+        </div>
+      ) : (
+        <div>
+          <AppBar />
+          <div className="flex-column">
+            <TextField />
+            <TextField type="password"/>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={() => setLoggedIn(true)}
+            >
+              Login
+            </Button>
+          </div>
+        </div>
+      );
+    }
