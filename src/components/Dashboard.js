@@ -19,9 +19,23 @@ import { MenuItem } from "@material-ui/core";
 
 
 export default function Dashboard() {
- 
+//   state
   const [notifications, setNotifications] = useState([])
+  const [online, setOnline] = useState(false)
+  const [volume, setVolume] = useState(20)
+  const [soundQuality, setSoundQuality] = useState(2)
+  
+//   state change handler functions
+    const handleOnline = () => online ? setOnline(false) : setOnline(true)
 
+    const handleVolume = (e, sliderValue) => {
+    e.preventDefault()
+    setVolume(sliderValue)
+}
+
+    const handleSound = (e) => {
+    setSoundQuality(e.target.value);
+  };
  
 
   
@@ -37,7 +51,7 @@ export default function Dashboard() {
             <Typography variant="body2" color="textSecondary" component="p">
           Is the application connected to the internet? 
         </Typography>
-        <Switch />
+        <Switch onChange={handleOnline}/>
       </CardContent>
       <CardActions disableSpacing></CardActions>
     </Card>
@@ -50,7 +64,8 @@ export default function Dashboard() {
           Overrides all other sounds settings in the application
         </Typography>
         <Slider 
-        value = {0}
+        value = {volume}
+        onChange = {handleVolume}
         aria-labelledby="discrete-slider-small-steps"
         step={10}
         marks
@@ -72,7 +87,8 @@ export default function Dashboard() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={1}
+          value={soundQuality}
+          onChange={handleSound}
           
         >
           <MenuItem value={1}>Low</MenuItem>
