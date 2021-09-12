@@ -4,13 +4,10 @@ import React, {useState, useEffect} from "react"
 
 import { Typography } from '@material-ui/core';
 
-import { makeStyles } from "@material-ui/core/styles";
-
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 
-import { red } from "@material-ui/core/colors";
 
 import { Switch } from "@material-ui/core";
 import { Slider } from "@material-ui/core";
@@ -19,8 +16,14 @@ import { MenuItem } from "@material-ui/core";
 
 
 export default function Dashboard() {
-//   state
+    // notificaiton messages in variables 
+    const offlineWarning = "Your application is offline. You won't be able to share or stream music to other devices"
+    const volumeWarning = "Listening to music at a high volume could cause long-term hearing loss."
+    const qualityWarning = "Music quality is degraded. Increase quality if your connection allows it."
+
+    //   state
   const [notifications, setNotifications] = useState([])
+
   const [online, setOnline] = useState(false)
   const [volume, setVolume] = useState(20)
   const [soundQuality, setSoundQuality] = useState(2)
@@ -37,6 +40,38 @@ export default function Dashboard() {
     setSoundQuality(e.target.value);
   };
  
+
+useEffect(()=>{console.log(notifications)},[notifications])
+
+
+useEffect(()=>{
+    if(!online && volume > 80 && soundQuality === 1) {
+        setNotifications(()=>[offlineWarning, volumeWarning, qualityWarning])
+    } else if (online && volume > 80 && soundQuality === 1) {
+        setNotifications(()=>[volumeWarning, qualityWarning])
+    } else if(online && volume > 80) {
+        setNotifications(()=>[volumeWarning])
+    } else if(!online && volume > 80) {
+        setNotifications(()=>[offlineWarning, volumeWarning])
+    } else if(online && soundQuality === 1) {
+        setNotifications(()=>[qualityWarning])
+    } else if(!online && soundQuality === 1) {
+        setNotifications(()=>[offlineWarning, qualityWarning])
+    } else if(!online) {
+        setNotifications(()=>[offlineWarning])
+    } else if(online) {
+        setNotifications(()=>[])
+    }
+}, [online, volume, soundQuality])
+
+
+
+
+
+  
+
+   
+
 
   
 
@@ -103,8 +138,8 @@ export default function Dashboard() {
       </div>
       <div>
       <Typography color="textPrimary" variant="h6">System Notifications:</Typography>
-      <ul>
-        {notifications.map((notification, index) => (<li key={index}>{notification}</li>))}
+      <ul style={{listStyle: "none"}}>
+        {notifications.map((message, index) => (<li key={index}>{message}</li>))}
       </ul>
       </div>
     </div>
