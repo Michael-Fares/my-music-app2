@@ -23,14 +23,14 @@ export default function App() {
       ) : (
         <div>
           <AppBar />
-          <div className="flex-column">
-            <TextField />
-            <TextField type="password"/>
-            <Button
+          <div className="flex-column textfield-margin">
+            <TextField required="true" placeholder="Username" label="Username"/>
+            <TextField required="true" placeholder="Password" type="password" label="Password"/>
+            <Button className="sidepadding"
               color="primary"
               variant="contained"
               onClick={() => setLoggedIn(true)}
-            >
+               >
               Login
             </Button>
           </div>

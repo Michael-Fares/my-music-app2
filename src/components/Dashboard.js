@@ -13,6 +13,8 @@ import { Switch } from "@material-ui/core";
 import { Slider } from "@material-ui/core";
 import { Select } from "@material-ui/core";
 import { MenuItem } from "@material-ui/core";
+import { Box } from "@material-ui/core";
+
 
 
 export default function Dashboard() {
@@ -43,7 +45,7 @@ export default function Dashboard() {
 
 useEffect(()=>{console.log(notifications)},[notifications])
 
-
+// is there are more elegant way to do this ??
 useEffect(()=>{
     if(!online && volume > 80 && soundQuality === 1) {
         setNotifications(()=>[offlineWarning, volumeWarning, qualityWarning])
@@ -64,27 +66,18 @@ useEffect(()=>{
     }
 }, [online, volume, soundQuality])
 
-
-
-
-
-  
-
-   
-
-
-  
-
   return (
     <div>
       <Typography color="textSecondary" variant="h5">Welcome User!</Typography>
       <div className="flex-row margin-top">
 
       <Card >
-        <Typography>Online Mode</Typography>
+        <Typography><Box fontWeight="fontWeightBold">Online Mode</Box></Typography>
         <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">
+                
           Is the application connected to the internet? 
+            
         </Typography>
         <Switch onChange={handleOnline}/>
       </CardContent>
