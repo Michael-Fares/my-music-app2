@@ -72,9 +72,13 @@ useEffect(()=>{
       <div className="flex-row margin-top">
 
       <Card >
-        <Typography><Box fontWeight="fontWeightBold">Online Mode</Box></Typography>
-        <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
+      <CardContent>
+        <Box fontWeight="fontWeightBold">
+          Online Mode
+          </Box>
+        </CardContent>
+        <CardContent className="cardcontent-margin">
+            <Typography variant="body2" color="textSecondary" component="p" >
                 
           Is the application connected to the internet? 
             
@@ -86,9 +90,13 @@ useEffect(()=>{
 
 
     <Card >
-      <Typography>Master Volume</Typography>
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+    <CardContent>
+      <Box fontWeight="fontWeightBold">
+        Master Volume
+        </Box>
+      </CardContent>
+      <CardContent className="cardcontent-margin">
+        <Typography variant="body2" color="textSecondary" component="p" >
           Overrides all other sounds settings in the application
         </Typography>
         <Slider 
@@ -107,8 +115,12 @@ useEffect(()=>{
     </Card>
 
     <Card >
-      <Typography>Sound Quality</Typography>
-      <CardContent>
+    <CardContent>
+    <Box fontWeight="fontWeightBold">
+      Sound Quality
+      </Box>
+    </CardContent>
+      <CardContent className="cardcontent-margin">
         <Typography variant="body2" color="textSecondary" component="p">
           Manually control the music quality in event of poor connection
         </Typography>
@@ -130,7 +142,9 @@ useEffect(()=>{
 
       </div>
       <div>
-      <Typography color="textPrimary" variant="h6">System Notifications:</Typography>
+      <Box fontWeight="fontWeightBold" fontSize={20} >
+        System Notifications:
+        </Box>
       <ul style={{listStyle: "none"}}>
         {notifications.map((message, index) => (<li key={index}>{message}</li>))}
       </ul>
