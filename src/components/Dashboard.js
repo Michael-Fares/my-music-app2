@@ -86,7 +86,7 @@ useEffect(()=>{
           Is the application connected to the internet? 
             
         </Typography>
-        <Switch onChange={handleOnline}/>
+        <Switch className = "margin-top-thin" onChange={handleOnline}/>
       </CardContent>
       <CardActions disableSpacing></CardActions>
     </Card>
@@ -102,7 +102,7 @@ useEffect(()=>{
         <Typography variant="body2" color="textSecondary" component="p" >
           Overrides all other sounds settings in the application
         </Typography>
-        <Slider 
+        <Slider className = "margin-top-thin"
         value = {volume}
         onChange = {handleVolume}
         aria-labelledby="discrete-slider-small-steps"
@@ -129,7 +129,8 @@ useEffect(()=>{
           Manually control the music quality in event of poor connection
         </Typography>
     
-        <Select fullWidth = {true} 
+        <Select className = "margin-top-thin"
+          fullWidth = {true} 
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={soundQuality}
