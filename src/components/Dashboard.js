@@ -68,10 +68,13 @@ useEffect(()=>{
 
   return (
     <div>
-      <Typography color="textSecondary" variant="h5">Welcome User!</Typography>
+     <Box fontWeight="fontWeightBold" fontSize={30}  color="text.secondary" className="title-margin-lg">
+        Welcome User!
+        </Box>
       <div className="flex-row margin-top">
-
-      <Card >
+     
+      
+      <Card raised="true" className="card-width">
       <CardContent>
         <Box fontWeight="fontWeightBold">
           Online Mode
@@ -89,7 +92,7 @@ useEffect(()=>{
     </Card>
 
 
-    <Card >
+    <Card raised="true" className="card-width">
     <CardContent>
       <Box fontWeight="fontWeightBold">
         Master Volume
@@ -114,17 +117,19 @@ useEffect(()=>{
       <CardActions disableSpacing></CardActions>
     </Card>
 
-    <Card >
+    <Card raised="true" className="card-width">
     <CardContent>
     <Box fontWeight="fontWeightBold">
       Sound Quality
       </Box>
     </CardContent>
-      <CardContent className="cardcontent-margin">
-        <Typography variant="body2" color="textSecondary" component="p">
+      <CardContent >
+     
+        <Typography variant="body2" color="textSecondary" component="p" >
           Manually control the music quality in event of poor connection
         </Typography>
-        <Select
+    
+        <Select fullWidth = {true} 
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={soundQuality}
@@ -142,10 +147,10 @@ useEffect(()=>{
 
       </div>
       <div>
-      <Box fontWeight="fontWeightBold" fontSize={20} >
+      <Box fontWeight="fontWeightBold" fontSize={20}  className="title-margin-lg">
         System Notifications:
         </Box>
-      <ul style={{listStyle: "none"}}>
+      <ul style={{marginLeft: "100px"}}>
         {notifications.map((message, index) => (<li key={index}>{message}</li>))}
       </ul>
       </div>

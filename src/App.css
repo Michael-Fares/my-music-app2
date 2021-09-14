@@ -11,7 +11,11 @@
 }
 
 .margin-top {
-  margin-top: 90px;
+  margin-top: 60px;
+}
+
+.margin-top-sm {
+  margin-top: 30px;
 }
 
 .textfield-margin {
@@ -25,3 +29,24 @@
 .cardcontent-margin {
   margin: 0, 40px;
 }
+
+.button-wide {
+  width: 166px;
+}
+
+.title-margin {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.title-margin-lg {
+  margin-top: 40px;
+  margin-left: 80px;
+}
+
+.card-width {
+  width: 250px
+}
+
+
+

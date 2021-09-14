@@ -25,14 +25,16 @@ export default function App() {
           <AppBar />
           <div className="flex-column textfield-margin">
             <TextField required="true" placeholder="Username" label="Username"/>
-            <TextField required="true" placeholder="Password" type="password" label="Password"/>
-            <Button className="sidepadding"
+            <TextField required="true" placeholder="Password" type="password" label="Password"/ >
+              <div className="margin-top-sm button-wide">
+            <Button fullWidth = {true}
               color="primary"
               variant="contained"
               onClick={() => setLoggedIn(true)}
                >
               Login
             </Button>
+            </div>
           </div>
         </div>
       );
