@@ -26,7 +26,7 @@ export default function Dashboard() {
     //   state
   const [notifications, setNotifications] = useState([])
 
-  const [online, setOnline] = useState(false)
+  const [online, setOnline] = useState(true)
   const [volume, setVolume] = useState(20)
   const [soundQuality, setSoundQuality] = useState(2)
   
@@ -86,9 +86,11 @@ useEffect(()=>{
           Is the application connected to the internet? 
             
         </Typography>
-        <Switch className = "margin-top-thin" onChange={handleOnline}/>
+        
       </CardContent>
-      <CardActions disableSpacing></CardActions>
+      <CardActions disableSpacing>
+      <Switch className = "margin-top-thin" checked = {online} onChange={handleOnline}/>
+      </CardActions>
     </Card>
 
 
@@ -102,7 +104,10 @@ useEffect(()=>{
         <Typography variant="body2" color="textSecondary" component="p" >
           Overrides all other sounds settings in the application
         </Typography>
-        <Slider className = "margin-top-thin"
+        
+      </CardContent>
+      <CardActions disableSpacing>
+      <Slider className = "margin-top-thin"
         value = {volume}
         onChange = {handleVolume}
         aria-labelledby="discrete-slider-small-steps"
@@ -110,11 +115,8 @@ useEffect(()=>{
         marks
         min={0}
         max={100}
-        valueLabelDisplay="auto"
-  
-/>
-      </CardContent>
-      <CardActions disableSpacing></CardActions>
+        valueLabelDisplay="auto"/>
+      </CardActions>
     </Card>
 
     <Card raised="true" className="card-width">
@@ -129,20 +131,20 @@ useEffect(()=>{
           Manually control the music quality in event of poor connection
         </Typography>
     
-        <Select className = "margin-top-thin"
+     
+      </CardContent>
+      <CardActions disableSpacing>
+      <Select className = "margin-top-thin"
           fullWidth = {true} 
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={soundQuality}
-          onChange={handleSound}
-          
-        >
+          onChange={handleSound}>
           <MenuItem value={1}>Low</MenuItem>
           <MenuItem value={2}>Normal</MenuItem>
           <MenuItem value={3}>High</MenuItem>
         </Select>
-      </CardContent>
-      <CardActions disableSpacing></CardActions>
+      </CardActions>
     </Card>
 
 
