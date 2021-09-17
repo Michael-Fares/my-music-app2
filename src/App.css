@@ -30,9 +30,7 @@
   margin: 0, 40px;
 }
 
-.button-wide {
-  width: 166px;
-}
+
 
 .title-margin {
   margin-top: 20px;
@@ -46,6 +44,9 @@
 
 .card-width {
   width: 250px
+}
+.MuiFormControl-root, .button-wide {
+  width: 250px;
 }
 
 

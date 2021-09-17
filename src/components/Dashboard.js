@@ -104,10 +104,7 @@ useEffect(()=>{
         <Typography variant="body2" color="textSecondary" component="p" >
           Overrides all other sounds settings in the application
         </Typography>
-        
-      </CardContent>
-      <CardActions disableSpacing>
-      <Slider className = "margin-top-thin"
+        <Slider className = "margin-top-thin"
         value = {volume}
         onChange = {handleVolume}
         aria-labelledby="discrete-slider-small-steps"
@@ -116,6 +113,9 @@ useEffect(()=>{
         min={0}
         max={100}
         valueLabelDisplay="auto"/>
+      </CardContent>
+      <CardActions disableSpacing>
+      
       </CardActions>
     </Card>
 
