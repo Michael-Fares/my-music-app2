@@ -74,7 +74,7 @@ useEffect(()=>{
       <div className="flex-row margin-top">
      
       
-      <Card raised="true" className="card-width">
+      <Card className="card-width">
       <CardContent>
         <Box fontWeight="fontWeightBold">
           Online Mode
@@ -94,7 +94,7 @@ useEffect(()=>{
     </Card>
 
 
-    <Card raised="true" className="card-width">
+    <Card className="card-width">
     <CardContent>
       <Box fontWeight="fontWeightBold">
         Master Volume
@@ -119,7 +119,7 @@ useEffect(()=>{
       </CardActions>
     </Card>
 
-    <Card raised="true" className="card-width">
+    <Card className="card-width">
     <CardContent>
     <Box fontWeight="fontWeightBold">
       Sound Quality
